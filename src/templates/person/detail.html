@@ -1,0 +1,27 @@
+{%extends 'base.html' %}
+
+{% block content %}
+
+<h1>Person Details</h1>
+<h2>{{object.name}}'s details:</h2>
+
+<ul>
+    <li><b>Name:</b> {{object.name}}</li>
+    <li>
+        {% if object.bio == "" %}
+            <b>Bio:</b> Not provided
+        {% else %}
+            <b>Bio:</b> {{object.bio}}
+        {% endif %}
+    </li>
+    <li><b>Age:</b> {{object.age}}</li>
+</ul>
+
+<h3><a href='{{object.get_update_url}}'>Update information</a></h3>
+<form action='.' method = 'POST'> {% csrf_token %}
+    {{ form.as_p }}
+    <input type = 'submit' value = 'Delete Person'>
+</from>
+<h4><a href='{{object.get_absolute_url|add:"../../"}}'>Back</a></h4>
+{% endblock content %}
+

@@ -1,0 +1,13 @@
+{%extends 'base.html' %}
+
+{% block content %}
+
+<h2>Change below fields to update {{object.name}}'s information</h2>
+
+<form action='.' method = 'POST'> {% csrf_token %}
+    {{ form.as_p }}
+    <input type = 'submit' value = 'update'>
+</from>
+
+{% endblock content %}
+

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Hello {{request.user}}!!</h1>
+<h3>Below is the list of items in the database: </h3>
+<ul>
+    {% for instance in object_list %}
+        <li type='1'><a href='{{ instance.get_absolute_url }}'> {{ instance.name }}</a></li>
+    {% endfor %}
+</ul>
+
+<h3><a href='/create'>Create</a></h3>
+
+{% endblock %}
